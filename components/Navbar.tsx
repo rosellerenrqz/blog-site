@@ -14,11 +14,13 @@ const navigations = [
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <header className="bg-white/70 border-b">
+    <header className="bg-white/90 border-b shadow-md sticky top-0 z-10 backdrop-blur-lg transition-colors">
       <nav className="flex justify-between p-4 items-center lg:px-7 max-w-2xl mx-auto lg:max-w-7xl">
-        <h1>
-          <Logo title="Blog" className="text-black" />
-        </h1>
+        <Link href="/">
+          <h1>
+            <Logo title="Blog" className="text-black" />
+          </h1>
+        </Link>
         <div className="flex gap-4 md:gap-7">
           {navigations.map((nav) => (
             <Link
