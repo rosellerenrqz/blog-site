@@ -1,3 +1,4 @@
+"use client";
 import BlogContent from "@/components/BlogContent";
 import Hero from "@/components/Hero";
 import { client } from "@/libs/createClient";
@@ -19,7 +20,7 @@ export default async function Home() {
   return (
     <main>
       <Hero />
-      <BlogContent data={data} />
+      <BlogContent posts={data} />
     </main>
   );
 }

@@ -32,7 +32,7 @@ const navigations = [
 const Footer = () => {
   return (
     <footer className="bg-black/90 border-b shadow-md">
-      <div className="flex text-white justify-between flex-col gap-10 sm:flex-row p-10 items-center lg:px-7 mt-5 max-w-2xl mx-auto lg:max-w-7xl">
+      <div className="flex text-white justify-between flex-col gap-10 sm:flex-row p-10 items-center lg:px-7 max-w-2xl mx-auto lg:max-w-7xl">
         <Logo title="Blog" className="text-white" />
         <ul className="flex gap-4">
           {navigations.map((nav, index) => (
