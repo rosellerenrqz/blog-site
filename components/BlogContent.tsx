@@ -10,12 +10,12 @@ interface Props {
 }
 
 const BlogContent = ({ posts }: Props) => {
-  console.log("posts", posts);
+  // console.log("posts", posts);
   return (
     <>
       <div className="max-w-2xl mx-auto py-20 px-10 flex flex-col gap-10 lg:max-w-7xl">
         {posts.map((post) => (
-          <Link href={post?.slug.current} key={post._id}>
+          <Link href={`read-more/${post?.slug.current}`} key={post._id}>
             {/* IMAGE */}
             <div className="flex flex-col md:flex-row gap-10 bg-white rounded-md rounded-tl-md rounded-br-md hover:shadow-md duration-200">
               <div className="relative w-full md:w-3/5 group overflow-hidden rounded-tl-md rounded-bl-md">
