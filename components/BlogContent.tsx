@@ -40,7 +40,7 @@ const BlogContent = ({ posts }: Props) => {
                   {post.categories.map((category) => (
                     <p
                       key={category._id}
-                      className="text-sm font-medium text-blue-500 uppercase">
+                      className="text-sm font-bold text-blue-500 uppercase">
                       {category.title}
                     </p>
                   ))}
@@ -55,7 +55,7 @@ const BlogContent = ({ posts }: Props) => {
                     </p>
                   ))}
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between flex-col-reverse sm:flex-row gap-5 my-5 items-start sm:items-center">
                   <p className="text-gray-500 text-sm">
                     {new Date(post?._createdAt).toLocaleDateString("en-US", {
                       year: "numeric",
@@ -63,15 +63,15 @@ const BlogContent = ({ posts }: Props) => {
                       day: "numeric",
                     })}
                   </p>
-                  <div className="flex items-center gap-5">
+                  <div className="flex items-center gap-3">
                     <Image
                       src={urlFor(post?.author.image)}
-                      alt="test"
+                      alt={post?.author._type}
                       width={40}
                       height={40}
                       className="rounded-full"
                     />
-                    <p>{post?.author.name}</p>
+                    <p className="text-sm">{post?.author.name}</p>
                   </div>
                 </div>
               </div>
