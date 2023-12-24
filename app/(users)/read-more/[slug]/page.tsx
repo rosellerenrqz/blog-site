@@ -16,17 +16,6 @@ interface Props {
   };
 }
 
-const getData = async (slug: Props) => {
-  const query = `*[_type == 'post' && slug.current == '${slug}'] {
-    ...,
-    body,
-      author->
-  }`;
-
-  const data = await client.fetch(query);
-  return data;
-};
-
 const socialLinks = [
   {
     icon: <FaYoutube size={25} />,
@@ -55,18 +44,29 @@ const socialLinks = [
   },
 ];
 
+const getData = async (slug: Props) => {
+  const query = `*[_type == 'post' && slug.current == '${slug}'] {
+    ...,
+    body,
+      author->
+  }`;
+
+  const data = await client.fetch(query);
+  return data;
+};
+
 export default async function ReadMorePage({
   params,
 }: {
   params: { slug: Props };
 }) {
   const datas = await getData(params.slug);
-  console.log(datas);
+  // console.log(datas);
   return (
     <>
       <div className="max-w-2xl mx-auto mb-10 flex flex-col px-4 gap-10 lg:px-7 lg:max-w-7xl">
         {datas.map((data: any) => {
-          console.log(data.author.bio[0].children[0].text);
+          // console.log(data.author.bio[0].children[0].text);
           return (
             <div
               key={data._id}
@@ -99,7 +99,8 @@ export default async function ReadMorePage({
                     <Link
                       key={index}
                       href={link.href}
-                      className={`bg-gray-200 p-2 rounded-full text-white ${link.className}`}>
+                      target="_blank"
+                      className={`p-2 rounded-full text-white ${link.className}`}>
                       {link.icon}
                     </Link>
                   ))}
