@@ -3,6 +3,8 @@ import BlogContent from "@/components/BlogContent";
 import Hero from "@/components/Hero";
 import { client } from "@/libs/createClient";
 
+export const revalidate = 30;
+
 const getData = async () => {
   const query = `*[_type == "post"] {
     ...,
